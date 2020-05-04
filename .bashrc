@@ -117,13 +117,13 @@ if ! shopt -oq posix; then
   fi
 fi
 
-alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
-#HISTCONTROL=ignoreboth:erasedups
-#shopt -s histappend
-#PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMANDS$'\n'}history -a; history -c; history -r"
+HISTCONTROL=ignoreboth:erasedups
+shopt -s histappend
+PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMANDS$'\n'}history -a; history -c; history -r"
 
-#[ -f ~/.fzf.bash ] && source ~/.fzf.bash  #fzf integration
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash  #fzf integration
 
 export _JAVA_AWT_WM_NON_REPARENTING=1  #fix AWT issue
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
