@@ -63,8 +63,10 @@ for file_path in ~/Templates/*; do
     eval "nw_$basename() {
         if [ -z \"\$1\" ]; then
             cp $file_path .
+	    vim \$1
         else
             cp $file_path \$1.$ext
+	    vim \$1.$ext
         fi
     }"
 done
