@@ -129,5 +129,5 @@ export _JAVA_AWT_WM_NON_REPARENTING=1  #fix AWT issue
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
 export LD_LIBRARY_PATH=/usr/local/lib
 export CMAKE_GENERATOR=Ninja
-export GIT_DIR=~/.config/git/.gitconfig
+export GIT_CONFIG=~/.config/git/config
 
