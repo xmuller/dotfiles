@@ -125,6 +125,7 @@ PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMANDS$'\n'}history -a; history -c; 
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash  #fzf integration
 
+export EDITOR=nvim
 export _JAVA_AWT_WM_NON_REPARENTING=1  #fix AWT issue
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
 export LD_LIBRARY_PATH=/usr/local/lib
