@@ -117,13 +117,19 @@ if ! shopt -oq posix; then
   fi
 fi
 
+
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 HISTCONTROL=ignoreboth:erasedups
 shopt -s histappend
 PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMANDS$'\n'}history -a; history -c; history -r"
 
+# fzf, forgit
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash  #fzf integration
+source ~/.config/forgit/forgit.plugin.sh
+export FORGIT_GI_REPO_REMOTE=${FORGIT_GI_REPO_REMOTE:-https://github.com/dvcs/gitignore}
+export FORGIT_GI_REPO_LOCAL=${FORGIT_GI_REPO_LOCAL:-~/.config/forgit/gi/repos/dvcs/gitignore}
+export FORGIT_GI_TEMPLATES=${FORGIT_GI_TEMPLATES:-$FORGIT_GI_REPO_LOCAL/templates}
 
 export EDITOR=nvim
 export _JAVA_AWT_WM_NON_REPARENTING=1  #fix AWT issue
@@ -131,4 +137,5 @@ export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
 export LD_LIBRARY_PATH=/usr/local/lib
 export CMAKE_GENERATOR=Ninja
 export GIT_CONFIG=~/.config/git/config
+
 
