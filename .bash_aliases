@@ -47,6 +47,9 @@ done
 
 # Utils
 alias lcpp='find . -name \*.cpp -print | cut -d'/' -f2-'
+if type pacman > /dev/null 2>&1; then
+  alias paci="pacman -Slq | fzf -m --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
+fi
 
 # Functions (not really aliases but...)
 function md() {
@@ -60,7 +63,8 @@ for file_path in ~/Templates/*; do
     filename=${s##*/}
     basename=${filename%.*}
     ext=${filename#*.}
-    eval "nw_$basename() {
+    underscored=${basename// /_}
+    eval "nw_$underscored() {
         if [ -z \"\$1\" ]; then
             cp $file_path .
 	    vim \$1
