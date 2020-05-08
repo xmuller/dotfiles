@@ -1,5 +1,10 @@
 #! /bin/bash
 
+# edit config aliases
+alias bashrc='vim ~/.bashrc'
+alias bash_aliases='vim ~/.bash_aliases'
+alias vimrc='vim ~/.config/nvim/init.vim'
+
 # reload bash config
 alias reload_bash='source ~/.bashrc'
 
