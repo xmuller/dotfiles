@@ -229,4 +229,3 @@ if [[ -z "$FORGIT_NO_ALIASES" ]]; then
     alias "${forgit_clean:-gclean}"='forgit::clean'
     alias "${forgit_stash_show:-gss}"='forgit::stash::show'
 fi
--
