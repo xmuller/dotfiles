@@ -40,7 +40,7 @@ call plug#end()
 set number
 let mapleader = " "
 inoremap jk <ESC>
-noremap ; .
+noremap ! .
 
 highlight LineNr ctermfg=250 ctermbg=238
 nnoremap <leader>fm :Neoformat<CR>
