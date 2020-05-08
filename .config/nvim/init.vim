@@ -8,13 +8,14 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 
 " Autocompetion
-"Plug 'ncm2/ncm2'
-"Plug 'roxma/nvim-yarp'
-"Plug 'ncm2/ncm2-bufword'
-"Plug 'ncm2/ncm2-path'
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-path'
 
 " WIKI
 Plug 'vimwiki/vimwiki'
+Plug 'mattn/calendar-vim'
 
 " STATUS BAR
 Plug 'itchyny/lightline.vim'
@@ -49,7 +50,7 @@ nnoremap <leader>fm :Neoformat<CR>
 nnoremap Q @q
 vnoremap Q :norm @q<cr>
 
-noremap <C-e>2 :hsp<CR>
+noremap <C-e>2 :sp<CR>
 noremap <C-e>3 :vsp<CR>
 
 nnoremap <leader>f 1z=
@@ -70,6 +71,11 @@ noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 
+" enable ncm2 for all buffers
+autocmd BufEnter * call ncm2#enable_for_buffer()
+" IMPORTANT: :help Ncm2PopupOpen for more information
+set completeopt=noinsert,menuone,noselect
+
 " SEARCH
 nnoremap <C-p> :Files<ENTER>
 if has('nvim')
@@ -82,6 +88,22 @@ end
 " WIKI
 let g:vimwiki_list = [{'path': '~/Documents/vimwiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
+au BufRead,BufNewFile *.md set filetype=vimwiki
+function! ToggleCalendar()
+  execute ":Calendar"
+  if exists("g:calendar_open")
+    if g:calendar_open == 1
+      execute "q"
+      unlet g:calendar_open
+    else
+      g:calendar_open = 1
+    end
+  else
+    let g:calendar_open = 1
+  end
+endfunction
+:autocmd FileType vimwiki map d :VimwikiMakeDiaryNote
+:autocmd FileType vimwiki map c :call ToggleCalendar()
 
 " STATUS BAR
 let g:lightline = {
