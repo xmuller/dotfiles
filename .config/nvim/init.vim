@@ -79,6 +79,10 @@ if has('nvim')
   aug END
 end
 
+" WIKI
+let g:vimwiki_list = [{'path': '~/Documents/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
+
 " STATUS BAR
 let g:lightline = {
       \ 'colorscheme': 'jellybeans',
