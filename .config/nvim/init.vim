@@ -13,15 +13,8 @@ call plug#begin('~/.config/nvim/plugged')
 "Plug 'ncm2/ncm2-bufword'
 "Plug 'ncm2/ncm2-path'
 
-" LSP
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-
-" LINTER
-Plug 'w0rp/ale'
-
-" FORMAT
-Plug 'sbdchd/neoformat'
+" WIKI
+Plug 'vimwiki/vimwiki'
 
 " STATUS BAR
 Plug 'itchyny/lightline.vim'
@@ -35,9 +28,6 @@ Plug 'junegunn/fzf.vim'
 
 " COLOR SCHEME
 Plug 'joshdick/onedark.vim'
-
-" CPP HIGHLIGHT
-Plug 'arakashic/chromatica.nvim'
 
 " EDIT UTILS
 Plug 'tpope/vim-commentary'
@@ -67,6 +57,7 @@ nnoremap <leader>s :set spell!
 " répéter insertion en visuel
 vnoremap ; :norm.<CR>
 
+set nocompatible
 filetype plugin indent on
 syntax on
 set encoding=utf-8
