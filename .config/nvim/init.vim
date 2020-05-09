@@ -102,8 +102,8 @@ function! ToggleCalendar()
     let g:calendar_open = 1
   end
 endfunction
-:autocmd FileType vimwiki map d :VimwikiMakeDiaryNote
-:autocmd FileType vimwiki map c :call ToggleCalendar()
+:autocmd FileType vimwiki map <leader>d :VimwikiMakeDiaryNote
+:autocmd FileType vimwiki map <leader>c :call ToggleCalendar()
 
 " STATUS BAR
 let g:lightline = {
