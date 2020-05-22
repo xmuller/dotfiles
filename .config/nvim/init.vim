@@ -7,12 +7,6 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 
-" Autocompetion
-Plug 'ncm2/ncm2'
-Plug 'roxma/nvim-yarp'
-Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-path'
-
 " WIKI
 Plug 'vimwiki/vimwiki'
 Plug 'mattn/calendar-vim'
@@ -70,11 +64,6 @@ noremap <C-l> <C-w>l
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
-
-" enable ncm2 for all buffers
-autocmd BufEnter * call ncm2#enable_for_buffer()
-" IMPORTANT: :help Ncm2PopupOpen for more information
-set completeopt=noinsert,menuone,noselect
 
 " SEARCH
 nnoremap <C-p> :Files<ENTER>
