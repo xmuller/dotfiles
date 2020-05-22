@@ -27,6 +27,8 @@ python-pip
 sudo
 texlive-core
 ufw
+xdg-user-dirs
+xdg-utils
 xorg-server
 xorg-xinit
 xorg-xrandr
