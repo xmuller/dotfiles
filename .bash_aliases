@@ -54,6 +54,8 @@ done
 alias lcpp='find . -name \*.cpp -print | cut -d'/' -f2-'
 if type pacman > /dev/null 2>&1; then
   alias paci="pacman -Slq | fzf -m --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
+  alias pacr="sudo pacman -Rns $(pacman -Qtdq)" 
+  alias pacl="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'"
 fi
 
 # Functions (not really aliases but...)
