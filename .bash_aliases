@@ -58,6 +58,16 @@ if type pacman > /dev/null 2>&1; then
   alias pacl="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'"
 fi
 
+function wifispot() {
+  if [ "$1" == "1" ]; then
+    echo "Start wifi hotspot"
+    sudo systemctl start create_ap.service
+  else
+    echo "Stop wifi hotspot"
+    sudo systemctl stop create_ap.service
+  fi
+}
+
 # Functions (not really aliases but...)
 function md() {
     mkdir -p $1
