@@ -34,4 +34,6 @@ fi
 
 numlockx &
 
-exec dwm
+# while :; do
+  ssh-agent dwm
+# done
