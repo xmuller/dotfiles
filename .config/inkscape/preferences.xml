@@ -126,7 +126,9 @@
       <eventcontext
          id="rect"
          style="fill:blue;"
-         usecurrent="1" />
+         usecurrent="1"
+         width="192.672"
+         height="124.255" />
       <eventcontext
          id="3dbox"
          style="stroke:none;stroke-linejoin:round;"
@@ -920,15 +922,15 @@
      id="extensions" />
   <group
      id="desktop"
-     style="">
+     style="fill:#0000ff">
     <group
-       width="640"
-       height="480"
+       width="1054"
+       height="1056"
        x="0"
-       y="0"
+       y="22"
        fullscreen="0"
        id="geometry"
-       maximized="1" />
+       maximized="0" />
     <group
        id="XYfront" />
     <group
@@ -1026,29 +1028,35 @@
      id="ui"
      language="" />
   <group
-     symbolicDefaultColors="0"
-     symbolicIcons="1"
-     darkTheme="1"
-     preferDarkTheme="1"
-     menuIcons_objects="0"
-     menuIcons_layers="0"
-     menuIcons_canvas="0"
+     id="theme"
+     defaultTheme="Adwaita"
+     defaultIconTheme="Adwaita"
+     gtkTheme="Adwaita"
      iconTheme="multicolor"
-     gtkTheme="Matcha-dark-aliz"
-     defaultIconTheme="Papirus-Dark-Maia"
-     defaultTheme="Matcha-sea"
-     id="theme">
+     menuIcons_canvas="0"
+     menuIcons_layers="0"
+     menuIcons_objects="0"
+     preferDarkTheme="1"
+     darkTheme="1"
+     symbolicIcons="0"
+     symbolicDefaultColors="0">
     <group
-       symbolicErrorColor="4232132863"
-       symbolicWarningColor="4067964415"
-       symbolicSuccessColor="783522047"
+       id="Papirus-Dark-Maia"
        symbolicBaseColor="3150170367"
-       id="Papirus-Dark-Maia" />
+       symbolicSuccessColor="783522047"
+       symbolicWarningColor="4067964415"
+       symbolicErrorColor="4232132863" />
     <group
-       symbolicErrorColor="7792383"
-       symbolicWarningColor="-15131905"
-       symbolicSuccessColor="10029823"
+       id="multicolor"
        symbolicBaseColor="-1315841"
-       id="multicolor" />
+       symbolicSuccessColor="10029823"
+       symbolicWarningColor="-15131905"
+       symbolicErrorColor="7792383" />
+    <group
+       id="hicolor"
+       symbolicBaseColor="4008635647"
+       symbolicSuccessColor="648766207"
+       symbolicWarningColor="4118348031"
+       symbolicErrorColor="3422552319" />
   </group>
 </inkscape>
