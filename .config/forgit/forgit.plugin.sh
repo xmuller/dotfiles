@@ -150,7 +150,7 @@ forgit::clean() {
 
 # git ignore generator
 export FORGIT_GI_REPO_REMOTE=${FORGIT_GI_REPO_REMOTE:-https://github.com/dvcs/gitignore}
-export FORGIT_GI_REPO_LOCAL=${FORGIT_GI_REPO_LOCAL:-~/.config/forgit/gi/repos/dvcs/gitignore}
+export FORGIT_GI_REPO_LOCAL=${FORGIT_GI_REPO_LOCAL:-~/.forgit/gi/repos/dvcs/gitignore}
 export FORGIT_GI_TEMPLATES=${FORGIT_GI_TEMPLATES:-$FORGIT_GI_REPO_LOCAL/templates}
 
 forgit::ignore() {
