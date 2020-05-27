@@ -58,6 +58,7 @@ syntax on
 set encoding=utf-8
 set clipboard=unnamedplus
 set spell spelllang=en_us,fr
+set nospell
 
 " change panes avec ctrl
 noremap <C-l> <C-w>l
