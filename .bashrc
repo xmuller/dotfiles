@@ -127,9 +127,8 @@ PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMANDS$'\n'}history -a; history -c; 
 # fzf, forgit
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash # fzf integration
 source ~/.config/forgit/forgit.plugin.sh
-export FORGIT_GI_REPO_REMOTE=${FORGIT_GI_REPO_REMOTE:-https://github.com/dvcs/gitignore}
-export FORGIT_GI_REPO_LOCAL=${FORGIT_GI_REPO_LOCAL:-~/.config/forgit/gi/repos/dvcs/gitignore}
-export FORGIT_GI_TEMPLATES=${FORGIT_GI_TEMPLATES:-$FORGIT_GI_REPO_LOCAL/templates}
+export FORGIT_GI_REPO_REMOTE=https://github.com/dvcs/gitignore
+export FORGIT_GI_REPO_LOCAL=~/.config/forgit/gi/repos/dvcs/gitignore
 
 export EDITOR=nvim
 export _JAVA_AWT_WM_NON_REPARENTING=1  #fix AWT issue
