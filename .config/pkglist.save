@@ -7,8 +7,10 @@ create_ap
 dhcpcd
 discord
 dmenu
+evince
 firefox
 gcc
+gdb
 gimp
 git
 grub
@@ -25,6 +27,7 @@ man-db
 man-pages
 neovim
 networkmanager
+ninja
 numlockx
 nvidia
 openssh
@@ -34,6 +37,7 @@ pulseaudio
 pulseaudio-alsa
 pulsemixer
 python-pip
+qtcreator
 sudo
 texlive-core
 ufw
@@ -42,3 +46,4 @@ xdg-utils
 xorg-server
 xorg-xinit
 xorg-xrandr
+zathura
