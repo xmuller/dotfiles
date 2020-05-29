@@ -129,6 +129,7 @@ PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMANDS$'\n'}history -a; history -c; 
 source ~/.config/forgit/forgit.plugin.sh
 export FORGIT_GI_REPO_REMOTE=https://github.com/dvcs/gitignore
 export FORGIT_GI_REPO_LOCAL=~/.config/forgit/gi/repos/dvcs/gitignore
+export FORGIT_GI_TEMPLATES=${FORGIT_GI_REPO_LOCAL}/templates
 
 export EDITOR=nvim
 export _JAVA_AWT_WM_NON_REPARENTING=1  #fix AWT issue
