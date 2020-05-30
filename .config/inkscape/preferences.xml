@@ -924,10 +924,10 @@
      id="desktop"
      style="fill:#0000ff">
     <group
-       width="1054"
-       height="1056"
-       x="0"
-       y="22"
+       width="1050"
+       height="1057"
+       x="1920"
+       y="17"
        fullscreen="0"
        id="geometry"
        maximized="0" />
@@ -1028,35 +1028,35 @@
      id="ui"
      language="" />
   <group
-     id="theme"
-     defaultTheme="Adwaita"
-     defaultIconTheme="Adwaita"
-     gtkTheme="Adwaita"
-     iconTheme="multicolor"
-     menuIcons_canvas="0"
-     menuIcons_layers="0"
-     menuIcons_objects="0"
-     preferDarkTheme="1"
-     darkTheme="1"
+     symbolicDefaultColors="0"
      symbolicIcons="0"
-     symbolicDefaultColors="0">
+     darkTheme="1"
+     preferDarkTheme="1"
+     menuIcons_objects="0"
+     menuIcons_layers="0"
+     menuIcons_canvas="0"
+     iconTheme="multicolor"
+     gtkTheme="Adwaita"
+     defaultIconTheme="Adwaita"
+     defaultTheme="Adwaita"
+     id="theme">
     <group
-       id="Papirus-Dark-Maia"
-       symbolicBaseColor="3150170367"
-       symbolicSuccessColor="783522047"
+       symbolicErrorColor="4232132863"
        symbolicWarningColor="4067964415"
-       symbolicErrorColor="4232132863" />
+       symbolicSuccessColor="783522047"
+       symbolicBaseColor="3150170367"
+       id="Papirus-Dark-Maia" />
     <group
-       id="multicolor"
-       symbolicBaseColor="-1315841"
-       symbolicSuccessColor="10029823"
+       symbolicErrorColor="7792383"
        symbolicWarningColor="-15131905"
-       symbolicErrorColor="7792383" />
+       symbolicSuccessColor="10029823"
+       symbolicBaseColor="-1315841"
+       id="multicolor" />
     <group
-       id="hicolor"
-       symbolicBaseColor="4008635647"
-       symbolicSuccessColor="648766207"
+       symbolicErrorColor="3422552319"
        symbolicWarningColor="4118348031"
-       symbolicErrorColor="3422552319" />
+       symbolicSuccessColor="648766207"
+       symbolicBaseColor="4008635647"
+       id="hicolor" />
   </group>
 </inkscape>
