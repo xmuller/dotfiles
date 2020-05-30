@@ -7,114 +7,128 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 
-" WIKI
-Plug 'vimwiki/vimwiki'
-Plug 'mattn/calendar-vim'
-
-" STATUS BAR
-Plug 'itchyny/lightline.vim'
-Plug 'mgee/lightline-bufferline' " For tabs on top
-Plug 'tpope/vim-fugitive'
-Plug 'ryanoasis/vim-devicons'
-
 " SEARCH
 Plug 'junegunn/fzf', { 'do': './install --all --xdg' }
 Plug 'junegunn/fzf.vim'
 
-" COLOR SCHEME
-Plug 'joshdick/onedark.vim'
+" STYLE
+Plug 'itchyny/lightline.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'ryanoasis/vim-devicons'
 
-" EDIT UTILS
+" COLOR SCHEME
+Plug 'morhetz/gruvbox'
+  " Plug 'joshdick/onedark.vim'
+
+" UTILS
+Plug 'vimwiki/vimwiki'
+Plug 'preservim/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 
 call plug#end()
 
-" Bindings Keys
-set number
-let mapleader = " "
-inoremap jk <ESC>
-noremap ! .
+colorscheme gruvbox
+set background=dark
 
-highlight LineNr ctermfg=250 ctermbg=238
-nnoremap <leader>fm :Neoformat<CR>
+""" basics
 
-" macro avec Q
-nnoremap Q @q
-vnoremap Q :norm @q<cr>
+  let mapleader=" "
+  inoremap jk <ESC>
+  set nocompatible
+  filetype plugin indent on
+  syntax on
+  highlight Comment cterm=italic
+  set path+=**
+  set clipboard+=unnamedplus
+  set encoding=utf8
+  set number relativenumber
+  set nohlsearch
+  set wildmenu
+  set wildmode=longest,list,full
+  set tabstop=2 shiftwidth=2 expandtab smarttab
 
-noremap <C-e>2 :sp<CR>
-noremap <C-e>3 :vsp<CR>
+  map <C-h> <C-w>h
+  map <C-j> <C-w>j
+  map <C-k> <C-w>k
+  map <C-l> <C-w>l
 
-nnoremap <leader>f 1z=
-nnoremap <leader>s :set spell!
-" répéter insertion en visuel
-vnoremap ; :norm.<CR>
+  "Replace all is aliased to S.
+     nnoremap S :%s//g<Left><Left>
 
-set nocompatible
-filetype plugin indent on
-syntax on
-set encoding=utf-8
-set clipboard=unnamedplus
-set spell spelllang=en_us,fr
-set nospell
+  "Disables automatic commenting on newline:
+    autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-" change panes avec ctrl
-noremap <C-l> <C-w>l
-noremap <C-h> <C-w>h
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
+  "spell-check
+    map <leader>o :setlocal spell! spelllang=fr<CR>
+    map <leader>oe :setlocal spell! spelllang=en_us<CR>
 
-" SEARCH
-nnoremap <C-p> :Files<ENTER>
-if has('nvim')
-  aug fzf_setup
-    au!
-    au TermOpen term://*FZF tnoremap <silent> <buffer><nowait> <esc> <c-c>
-  aug END
-end
+  "Save file as sudo on files that require root permission
+    cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 
-" WIKI
-let g:vimwiki_list = [{'path': '~/Documents/vimwiki/',
-                      \ 'syntax': 'markdown', 'ext': '.md'}]
-au BufRead,BufNewFile *.md set filetype=vimwiki
-function! ToggleCalendar()
-  execute ":Calendar"
-  if exists("g:calendar_open")
-    if g:calendar_open == 1
-      execute "q"
-      unlet g:calendar_open
-    else
-      g:calendar_open = 1
+  "Automatically deletes all trailing whitespace and newlines at end of file on save.
+    autocmd BufWritePre * %s/\s\+$//e
+    autocmd BufWritepre * %s/\n\+\%$//e
+
+""" latex setup
+
+  autocmd BufRead,BufNewFile *.tex set filetype=tex
+
+  "writing style
+    map <leader>f :Goyo \| set linebreak<CR>
+
+""" cpp setup
+
+  "fast header source switch
+    map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
+
+""" test snippets
+  nnoremap ,html :-1read $HOME/.config/nvim/snippets/skeleton_html.snip<CR>
+
+""" plugin configurations
+
+  "fzf
+    nnoremap <C-p> :Files<ENTER>
+    if has('nvim')
+      aug fzf_setup
+        au!
+        au TermOpen term://*FZF tnoremap <silent> <buffer><nowait> <esc> <c-c>
+      aug END
     end
-  else
-    let g:calendar_open = 1
-  end
-endfunction
-:autocmd FileType vimwiki map <leader>d :VimwikiMakeDiaryNote
-:autocmd FileType vimwiki map <leader>c :call ToggleCalendar()
 
-" STATUS BAR
-let g:lightline = {
-      \ 'colorscheme': 'jellybeans',
-      \ 'tabline': {
-      \   'left': [['buffers']],
-      \   'right': [[ 'exit' ]],
-      \ },
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified'] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'fugitive#head'
-      \ },
-      \ 'component_expand': {
-      \   'buffers': 'lightline#bufferline#buffers',
-      \ },
-      \ 'component_type': {
-      \   'buffers': 'tabsel'
-      \ },
-      \ }
-let g:lightline#bufferline#shorten_path = 1
-let g:lightline#bufferline#enable_devicons = 1
+  "wiki
+  let g:vimwiki_list = [{'path': '~/Documents/vimwiki/',
+                        \ 'syntax': 'markdown', 'ext': '.md'}]
+  map <leader>v :VimwikiIndex
+
+  "Nerd tree
+  	map <leader>n :NERDTreeToggle<CR>
+  	autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+      if has('nvim')
+          let NERDTreeBookmarksFile = stdpath('data') . '/NERDTreeBookmarks'
+      endif
+
+  "status bar
+    let g:lightline = {
+          \ 'colorscheme': 'jellybeans',
+          \ 'tabline': {
+          \   'left': [['buffers']],
+          \   'right': [[ 'exit' ]],
+          \ },
+          \ 'active': {
+          \   'left': [ [ 'mode', 'paste' ],
+          \             [ 'gitbranch', 'readonly', 'filename', 'modified'] ]
+          \ },
+          \ 'component_function': {
+          \   'gitbranch': 'fugitive#head'
+          \ },
+          \ 'component_expand': {
+          \   'buffers': 'lightline#bufferline#buffers',
+          \ },
+          \ 'component_type': {
+          \   'buffers': 'tabsel'
+          \ },
+          \ }
+    let g:lightline#bufferline#shorten_path = 1
+    let g:lightline#bufferline#enable_devicons = 1
