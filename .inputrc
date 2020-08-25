@@ -23,7 +23,12 @@ $if mode=vi
   "\e[B": history-search-forward
   j: history-search-forward
   k: history-search-backward
-  set keymap vi-insert 
+  set keymap vi-insert
   "\e[A": history-search-backward
   "\e[B": history-search-forward
+  # Shift-TAB cycles completions backward
+  "\e[Z": menu-complete-backward
+  TAB: menu-complete
+  "jk": vi-movement-mode
+  "kj": vi-movement-mode
 $endif
