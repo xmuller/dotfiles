@@ -158,6 +158,10 @@ set background=dark
     let g:lightline#bufferline#enable_devicons = 1
 
 """ coc configurations
+  let g:coc_global_extensions = [
+    \'coc-python',
+    \'coc-pyright',
+    \]
   set updatetime=1000
 
   nmap <silent> gd <Plug>(coc-definition)
