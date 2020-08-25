@@ -1,0 +1,26 @@
+{
+  "python.jediEnabled": true,
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Enabled": true,
+  "python.linting.flake8Args": ["--max-line-length=100"],
+  "python.formatting.autopep8Args": ["--max-line-length=100"],
+
+  "coc.preferences.formatOnType": true,
+  "coc.preferences.formatOnSaveFiletypes": ["python"],
+
+  "diagnostic.virtualText": true,
+  "diagnostic.virtualTextPrefix": " # ",
+  "diagnostic.virtualTextCurrentLineOnly": false,
+  "diagnostic.refreshOnInsertMode": false,
+  "diagnostic.messageTarget": "echo",
+  "diagnostic.enableSign": true,
+  "diagnostic.errorSign": "☢️",
+  "signature.target": "echo",
+
+  "python.jediEnabled": true,
+  "python.jediShortcut": "LS",
+
+  "pyright.disableLanguageServices": true
+
+}

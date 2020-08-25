@@ -39,6 +39,12 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
+" coc extensions
+let g:coc_global_extensions = [
+  \'coc-python',
+  \'coc-pyright',
+  \]
+
 colorscheme gruvbox
 set background=dark
 
