@@ -54,9 +54,13 @@ done
 alias lcpp='find . -name \*.cpp -print | cut -d'/' -f2-'
 if type pacman > /dev/null 2>&1; then
   alias paci="pacman -Slq | fzf -m --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
-  alias pacr="sudo pacman -Rns $(pacman -Qtdq)" 
+  alias pacr="sudo pacman -Rns $(pacman -Qtdq)"
   alias pacl="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'"
 fi
+
+function mdToPDF() {
+  pandoc $1 -s -o $(basename "${1%%.*}").pdf
+}
 
 function wifispot() {
   if [ "$1" == "1" ]; then
@@ -122,15 +126,15 @@ ex ()
 
 # fkill - kill processes - list only the ones you can kill. Modified the earlier script. fzf
 fkill() {
-    local pid 
+    local pid
     if [ "$UID" != "0" ]; then
         pid=$(ps -f -u $UID | sed 1d | fzf -m | awk '{print $2}')
     else
         pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
-    fi  
+    fi
 
     if [ "x$pid" != "x" ]
     then
         echo $pid | xargs kill -${1:-9}
-    fi  
+    fi
 }
