@@ -1,0 +1,6 @@
+include "%L"
+
+<dead_circumflex> <q>            	: "{"
+<dead_circumflex> <s>            	: "["
+<dead_circumflex> <d>            	: "]"
+<dead_circumflex> <f>            	: "}"
