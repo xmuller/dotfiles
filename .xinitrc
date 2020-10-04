@@ -2,9 +2,11 @@
 
 userresources=$HOME/.config/xinit/Xresources
 usermodmap=$HOME/.config/xinit/Xmodmap
+
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
+export XCOMPOSEFILE=$HOME/.config/xinit/XCompose
 # merge in defaults and keymaps
 
 if [ -f $sysresources ]; then
